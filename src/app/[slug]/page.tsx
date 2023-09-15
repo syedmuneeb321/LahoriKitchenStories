@@ -4,7 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Root, Root2 } from "@/Types/ImageTypes";
 
 
-const getData = async (slug: string) => {
+const getStaticProps = async (slug: string) => {
   const response = await fetch(
     `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries/?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=recipe`, { cache: 'no-store' }
   );
@@ -25,9 +25,9 @@ const getData = async (slug: string) => {
 
 
 
-const DetailedPage = async ({ params }: { params: { slug: string } }) => {
+const DetailedPage = async ({ params}: { params: { slug: string } }) => {
 
-  const Recipe = await getData(params.slug);
+  const Recipe = await getStaticProps(params.slug);
 
 
 

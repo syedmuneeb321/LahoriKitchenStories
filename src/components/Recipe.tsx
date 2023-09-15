@@ -2,7 +2,7 @@ import { Root2 } from "@/Types/ImageTypes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-const getData = async () => {
+const getStaticProps = async () => {
   const response = await fetch(
     `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=recipe`, { cache: "no-store" }
   );
@@ -11,9 +11,8 @@ const getData = async () => {
 };
 
 const Recipe = async () => {
-  const Recipe = await getData();
+  const Recipe = await getStaticProps();
 
-  // console.log(Recipe.includes.Asset[0])
 
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-10 justify-items-center">
