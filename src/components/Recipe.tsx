@@ -18,7 +18,7 @@ const Recipe = async () => {
     <div className="grid md:grid-cols-2 grid-cols-1 gap-x-3 gap-y-10 justify-items-center">
 
       {
-        Recipe.items.map((res:Root2) => {
+        Recipe.items?.map((res:Root2) => {
           let thumbnailImage = Recipe.includes.Asset.filter((thumb:Root2) => thumb.sys.id == res.fields.thumbnail.sys.id)
 
 
@@ -26,7 +26,7 @@ const Recipe = async () => {
             <div key={res.sys.id} className="">
               <div className="">
                 {
-                  thumbnailImage.map((img:Root2) => {
+                  thumbnailImage?.map((img:Root2) => {
 
                     return (
                       <div key={img.sys.id}>

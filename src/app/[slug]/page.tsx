@@ -61,7 +61,7 @@ const DetailedPage = async ({ params}: { params: { slug: string } }) => {
           </h2>
           <div className="grid md:grid-cols-2">
 
-            {Recipe.recipeDec.ingredients.map((item: string, indx: number) => (
+            {Recipe.recipeDec.ingredients?.map((item: string, indx: number) => (
               <div key={indx}>{item}</div>
             ))}
           </div>
