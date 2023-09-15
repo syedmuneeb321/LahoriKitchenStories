@@ -6,7 +6,7 @@ import { Root, Root2 } from "@/Types/ImageTypes";
 
 const getStaticProps = async (slug: string) => {
   const response = await fetch(
-    `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries/?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=recipe`, { cache: 'no-store' }
+    `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries/?access_token=${process.env.CONTENTFUL_ACCESS_KEY}&content_type=recipe`, { cache: 'no-cache' }
   );
   const data = await response.json();
 
