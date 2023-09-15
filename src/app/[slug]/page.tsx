@@ -11,9 +11,9 @@ const getStaticProps = async (slug: string) => {
   const data = await response.json();
 
 
-  const recipeDetails = data.items.find((recipes: Root2) => recipes.fields.slug === slug)
+  const recipeDetails = data.items?.find((recipes: Root2) => recipes.fields.slug === slug)
 
-  const bannerRecipeImage = data.includes.Asset.find((img: Root2) => img.sys.id == recipeDetails.fields.featuredImage.sys.id)
+  const bannerRecipeImage = data.includes.Asset?.find((img: Root2) => img.sys.id == recipeDetails.fields.featuredImage.sys.id)
 
   let recipe = {
     recipeDec: recipeDetails.fields,
