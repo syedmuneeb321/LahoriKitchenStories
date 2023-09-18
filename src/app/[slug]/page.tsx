@@ -16,6 +16,7 @@ const getStaticProps = async (slug: string) => {
   let recipe = {
     recipeDec: recipeDetails.fields,
     picture: bannerRecipeImage.fields,
+    author:data.includes
   }
 
   return recipe;
@@ -26,6 +27,7 @@ const getStaticProps = async (slug: string) => {
 const DetailedPage = async ({ params}: { params: { slug: string } }) => {
 
   const Recipe = await getStaticProps(params.slug);
+  
 
 
 
@@ -45,7 +47,7 @@ const DetailedPage = async ({ params}: { params: { slug: string } }) => {
           className="h-60 w-[35rem]"
         />
         <div className='self-end mt-2'>
-          <h2  className='text-gray-700'>Content Writer:<span className='font-bold text-xl'></span></h2>
+          <h2  className='text-gray-700'>Content Writer:<span className='font-bold text-xl'>{Recipe.author.Entry[0].fields.title}</span></h2>
         </div>
       </div>
       <div className="space-y-6">
